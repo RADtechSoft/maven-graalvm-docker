@@ -9,7 +9,7 @@ ARG BASE_URL=https://apache.osuosl.org/maven/maven-3/${MAVEN_VERSION}/binaries
 
 RUN gu install native-image
 
-RUN microdnf install tar which gzip unzip docker && rm -rf /var/cache/yum/* && yum clean all
+RUN microdnf install tar which gzip unzip docker && microdnf clean all
 
 RUN curl --silent --show-error --fail "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
 RUN unzip awscliv2.zip
