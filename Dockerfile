@@ -7,9 +7,7 @@ ARG USER_HOME_DIR="/root"
 ARG SHA=1c12a5df43421795054874fd54bb8b37d242949133b5bf6052a063a13a93f13a20e6e9dae2b3d85b9c7034ec977bbc2b6e7f66832182b9c863711d78bfe60faa
 ARG BASE_URL=https://apache.osuosl.org/maven/maven-3/${MAVEN_VERSION}/binaries
 
-RUN amazon-linux-extras install docker
-
-RUN yum install -y tar which gzip unzip groff && rm -rf /var/cache/yum/* && yum clean all
+RUN yum install -y tar which gzip unzip groff docker && rm -rf /var/cache/yum/* && yum clean all
 
 RUN curl --silent --show-error --fail "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
 RUN unzip awscliv2.zip
